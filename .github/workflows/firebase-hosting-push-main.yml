@@ -6,9 +6,11 @@ name: Deploy to Firebase Hosting on Push
   push:
     branches:
       - main
+      - production
 jobs:
-  build_and_preview:
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+  build_preview:
+    # run this job if branch is main
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,3 +20,16 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LADOOSINGH_UI }}'
           projectId: ladoosingh-ui
+
+  build_production:
+    # run this job if branch is production
+    if: github.ref_name == 'production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm i && npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LADOOSINGH_UI }}'
+          projectId: ladoosingh
