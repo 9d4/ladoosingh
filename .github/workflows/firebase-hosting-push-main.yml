@@ -20,7 +20,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LADOOSINGH_UI }}'
           projectId: ladoosingh-ui
-          channelId: live
+          channelId: preview
 
   build_production:
     # run this job if branch is production
@@ -33,5 +33,5 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LADOOSINGH_UI }}'
-          projectId: ladoosingh
-          channelId: prod
+          projectId: ladoosingh-ui
+          channelId: live
