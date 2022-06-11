@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "ladoosingh-ui"
+  },
+  "targets": {
+    "ladoosingh-ui": {
+      "hosting": {
+        "preview": [
+          "ladoosingh-ui"
+        ],
+        "production": [
+          "ladoosingh"
+        ]
+      }
+    }
   }
 }
