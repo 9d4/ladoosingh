@@ -5,8 +5,10 @@
   "targets": {
     "ladoosingh-ui": {
       "hosting": {
-        "production": [
-          "ladoosingh-ui",
+        "one": [
+          "ladoosingh-ui"
+        ],
+        "two": [
           "ladoosingh"
         ]
       }
