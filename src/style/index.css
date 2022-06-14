@@ -1,3 +1,7 @@
+:root {
+	--bg-primary: #351F39;
+}
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -9,6 +13,37 @@ html, body {
 	color: #444;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+@-webkit-keyframes bg-grad {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes bg-grad {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes bg-grad {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+body {
+	/* background bootstrap bg-white */
+	background: var(--bg-primary);
+	color: #f3f3f3;
+}
+
+body {
+    background: linear-gradient(270deg, #0d0b52, #0b696e);
+    background-size: 400% 400%;
+
+    -webkit-animation: bg-grad 0s ease infinite;
+    -moz-animation: bg-grad 0s ease infinite;
+    animation: bg-grad 0s ease infinite;
 }
 
 * {

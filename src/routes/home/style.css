@@ -1,5 +1,65 @@
-.home {
-	padding: 56px 20px;
-	min-height: 100%;
-	width: 100%;
+.home-container {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 768px;
+  }
+}
+
+.home_card {
+  backdrop-filter: blur(11px) saturate(142%);
+  -webkit-backdrop-filter: blur(11px) saturate(142%);
+  background-color: rgba(17, 25, 40, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 12px 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.home_card__title {
+  font-family: Righteous, sans-serif;
+  margin: 0 0 5px 0;
+}
+
+.home_card__subtitle {
+  font-family: Montserrat, sans-serif;
+  margin: 0 0 16px 0;
+}
+
+.home_card__button {
+  border: none;
+  box-shadow: inset 0px -4px 14px -7px #276873;
+  background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  background-color: #599bb3;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 45px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3d768a;
+}
+.home_card__button:hover {
+  background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+  background-color: #408c99;
+}
+.home_card__button:active {
+  position: relative;
+  top: 1px;
 }
