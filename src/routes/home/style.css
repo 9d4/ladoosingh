@@ -63,3 +63,8 @@
   position: relative;
   top: 1px;
 }
+
+.home_card__btn_container {
+  display: grid;
+  place-items: center;
+}
