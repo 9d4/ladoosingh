@@ -1,13 +1,20 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
+import {route} from 'preact-router';
 import style from './style.css';
 import Loading from '../../components/loading';
+import { generateHook } from '../../api/api-client';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
 
   const generateBtnOnClick = async () => {
     setLoading(true);
+    generateHook().then((link) => {
+      route(`/inspect/${link}`, true);
+    }).catch((err) => {
+      console.log(err);
+    })
   };
 
   return (
