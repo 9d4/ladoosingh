@@ -7,7 +7,6 @@ html, body {
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	background: #FAFAFA;
 	font-family: 'Helvetica Neue', arial, sans-serif;
 	font-weight: 400;
 	color: #444;
@@ -32,18 +31,7 @@ html, body {
 }
 
 body {
-	/* background bootstrap bg-white */
-	background: var(--bg-primary);
 	color: #e1e1e1;
-}
-
-body {
-    background: linear-gradient(270deg, #0d0b52, #0b696e);
-    background-size: 400% 400%;
-
-    -webkit-animation: bg-grad 0s ease infinite;
-    -moz-animation: bg-grad 0s ease infinite;
-    animation: bg-grad 0s ease infinite;
 }
 
 * {
@@ -51,7 +39,11 @@ body {
 }
 
 #app {
-	height: 100%;
+	background: linear-gradient(270deg, #0d0b52, #0b696e);
+    background-size: 400% 400%;
+    -webkit-animation: bg-grad 27s ease infinite;
+    -moz-animation: bg-grad 27s ease infinite;
+    animation: bg-grad 27s ease infinite;
 }
 
 a {
