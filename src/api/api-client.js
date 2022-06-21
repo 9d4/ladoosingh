@@ -38,4 +38,32 @@ const generateHook = () => {
     });
 };
 
-export { generateHook };
+const getLinkHistory = (linkID) => {
+  return fetch(paths.linkHistory.url.replace(':id', linkID), {
+    method: paths.linkHistory.method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      }
+
+      return Promise.reject(new Error('Error from API'));
+    })
+
+    .then((json) => {
+      return Promise.resolve(json);
+    })
+
+    .catch((err) => {
+      if (err.type === 'invalid-json') {
+        return Promise.reject(new Error('Error parsing response from API'));
+      }
+
+      return Promise.reject(err);
+    });
+}
+
+export { generateHook, getLinkHistory };

@@ -5,6 +5,10 @@ const paths = {
     method: "POST",
     url: `${host}/links`,
   },
+  linkHistory: {
+    method: "GET",
+    url: `${host}/links/:id`,
+  },
 };
 
 export { host, paths };
