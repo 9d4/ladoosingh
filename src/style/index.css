@@ -34,7 +34,7 @@ html, body {
 body {
 	/* background bootstrap bg-white */
 	background: var(--bg-primary);
-	color: #f3f3f3;
+	color: #e1e1e1;
 }
 
 body {
@@ -52,4 +52,9 @@ body {
 
 #app {
 	height: 100%;
+}
+
+a {
+	color: #2ea6cb;
+	text-decoration: none;
 }

@@ -1,0 +1,46 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+}
+
+.inspect_header {
+  margin-bottom: 32px;
+}
+
+.card {
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgb(17 25 40 / 55%);
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.card_body {
+  padding: 16px;
+}
+
+.hook_container {
+  margin-bottom: 16px;
+}
+
+.hook_container button {
+  margin-left: 16px;
+  font-size: 15px;
+  border:none;
+  background-color: transparent;
+  color: #5495a9;
+}
+
+.hook_container button:hover {
+  cursor: pointer;
+}
+
+/* click */
+.hook_container button:active {
+  position: relative;
+  top: 1px;
+  color: #094a5e;
+}
