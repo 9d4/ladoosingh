@@ -1,9 +1,25 @@
 import { h } from 'preact';
+import { useState, useEffect } from 'preact/hooks';
 import style from './style.css';
+import { getLinkHistory } from '../../api/api-client';
 import { host } from '../../api/paths';
 import copy from 'copy-to-clipboard';
+import HistoryList from '../../components/HistoryList';
 
 const Inspect = ({ linkID }) => {
+  const [histories, setHistories] = useState([]);
+  const [gotHistories, setGotHistories] = useState(false);
+
+  useEffect(() => {
+    if (gotHistories) {
+      return;
+    }
+    getLinkHistory(linkID)
+      .then((_histories) => setHistories(_histories))
+      .then(() => setGotHistories(true))
+      .catch((err) => console.log(err));
+  });
+
   const linkHook = `${host}/l/${linkID}`;
 
   const copyLink = () => {
@@ -16,7 +32,7 @@ const Inspect = ({ linkID }) => {
         <div class={style.card_body}>
           <div class={style.hook_container}>
             <span>Hook: </span>
-            <a href={linkHook} target="_blank" id="linkHook">
+            <a href={linkHook} target="_blank" id="linkHook" rel="noreferrer">
               {linkHook}
             </a>
             <button onClick={copyLink}>Copy</button>
@@ -28,7 +44,11 @@ const Inspect = ({ linkID }) => {
         </div>
       </div>
 
-
+      {gotHistories ? (
+        <HistoryList histories={histories} />
+      ) : (
+        <p>Loading histories...</p>
+      )}
     </div>
   );
 };

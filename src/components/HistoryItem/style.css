@@ -1,0 +1,19 @@
+.card {
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgb(17 25 40 / 55%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  margin-bottom: 16px;
+}
+
+.card_body {
+  padding: 16px;
+}
+
+body {
+  background-color: black !important;
+}
+
+pre {
+  overflow-x: auto;
+}
