@@ -32,18 +32,15 @@ html, body {
 
 body {
 	color: #e1e1e1;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-#app {
 	background: linear-gradient(270deg, #0d0b52, #0b696e);
     background-size: 400% 400%;
     -webkit-animation: bg-grad 27s ease infinite;
     -moz-animation: bg-grad 27s ease infinite;
     animation: bg-grad 27s ease infinite;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 a {
