@@ -1,4 +1,6 @@
-# ladoosingh
+# Ladoosingh - The Request Inspector
+
+This web app implements API from [9d4/ladoosingh-api](https://github.com/9d4/ladoosingh-api). Below are the scripts that can be used during development.
 
 ## CLI Commands
 
