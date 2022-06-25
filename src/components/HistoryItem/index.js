@@ -8,19 +8,39 @@ const HistoryItem = ({ history }) => {
     let output = '';
 
     keys.forEach((key) => {
-      output += `${key}: ${data.header[key]}\n`
+      output += `${key}: ${data.header[key]}\n`;
     });
 
     return output;
   };
 
+  const getFormattedBody = () => {
+    const body = data.body;
+
+    if (body === undefined) {
+      return '';
+    }
+
+    if (typeof body == 'object') {
+      return JSON.stringify(body);
+    }
+  };
+
   return (
     <div className={style.card}>
       <div className={style.card_body}>
-        <pre>
-          {`${data.method.toUpperCase()} ${data.path} HTTP/${data.http}\n`}
-          {getFormattedHeader()}
-        </pre>
+        <section>
+          <p>Header:</p>
+          <pre>
+            {`${data.method.toUpperCase()} ${data.path} HTTP/${data.http}\n`}
+            {getFormattedHeader()}
+          </pre>
+        </section>
+        <br />
+        <section>
+          <p>Body:</p>
+          <pre>{`${getFormattedBody()}`}</pre>
+        </section>
       </div>
     </div>
   );
