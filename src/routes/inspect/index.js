@@ -7,6 +7,10 @@ import copy from 'copy-to-clipboard';
 import HistoryList from '../../components/HistoryList';
 
 const Inspect = ({ linkID }) => {
+  useEffect(() => {
+    document.body.classList.add('staticbg');
+  },[]);
+
   const [histories, setHistories] = useState([]);
   const [gotHistories, setGotHistories] = useState(false);
 

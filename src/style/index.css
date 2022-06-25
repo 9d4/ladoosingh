@@ -39,6 +39,12 @@ body {
     animation: bg-grad 27s ease infinite;
 }
 
+body.staticbg {
+	-webkit-animation: none!important;
+    -moz-animation: none!important;
+	animation: none!important;
+}
+
 * {
 	box-sizing: border-box;
 }
