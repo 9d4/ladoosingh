@@ -24,6 +24,8 @@
 
 .hook_container {
   margin-bottom: 16px;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
 }
 
 .hook_container button {
