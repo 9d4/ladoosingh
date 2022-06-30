@@ -50,6 +50,10 @@ const getLinkHistory = (linkID) => {
         return res.json();
       }
 
+      if (res.status === 404) {
+        return Promise.reject(new Error('Hook not found'));
+      }
+
       return Promise.reject(new Error('Error from API'));
     })
 
