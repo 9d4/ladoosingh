@@ -1,9 +1,14 @@
 .card {
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: rgb(17 25 40 / 55%);
+  background-color: rgba(19, 145, 128, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.125);
   margin-bottom: 16px;
+  transition: background-color 1s ease-in;
+}
+
+.card.noticed {
+  background-color: rgb(17 25 40 / 55%);
 }
 
 .card_body {
