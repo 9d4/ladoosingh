@@ -5,7 +5,7 @@ const HistoryList = ({ histories }) => {
   return (
     <div>
       {histories.map((history) => (
-        <HistoryItem history={history} />
+        <HistoryItem history={history} key={history.data.info.received} />
       ))}
     </div>
   );
