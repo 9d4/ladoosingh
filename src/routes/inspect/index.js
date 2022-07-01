@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
+import Nes from "@hapi/nes/lib/client";
 import style from './style.css';
 import { getLinkHistory } from '../../api/api-client';
 import { host } from '../../api/paths';
@@ -26,6 +27,19 @@ const Inspect = ({ linkID }) => {
         setErrorMsg(err?.message ?? 'Unknown error. Try refreshing the page!');
       });
   });
+
+  useEffect(async () => {
+    const [scheme, url] = host.split('://');
+    let wsScheme = scheme === 'http' ? 'ws' : 'wss';
+
+    let wsClient = new Nes.Client(`${wsScheme}://${url}`);
+
+    wsClient.subscribe(`/ws/${linkID}`, (msg) => {
+      setHistories((prev) => [{data: msg}, ...prev]);
+    });
+
+    await wsClient.connect();
+  }, []);
 
   const linkHook = `${host}/l/${linkID}`;
 
