@@ -27,7 +27,7 @@ const HistoryItem = ({ history }) => {
     }
   };
 
-  let itemID = itemID = data.info.received;
+  let itemID = data.info.received;
   useEffect(() => {
 
     setTimeout(() => {
