@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { useEffect } from 'preact/hooks';
 import style from './style.css';
 
 const HistoryItem = ({ history }) => {
@@ -26,8 +27,17 @@ const HistoryItem = ({ history }) => {
     }
   };
 
+  let itemID = itemID = data.info.received;
+  useEffect(() => {
+
+    setTimeout(() => {
+      const el = document.getElementById(itemID);
+      if (el !== undefined) el.setAttribute('class', `${style.card} ${style.noticed}`)
+    }, 450);
+  }, []);
+
   return (
-    <div className={style.card}>
+    <div className={`${style.card}`} id={`${itemID}`}>
       <div className={style.card_body}>
         <section>
           <p>Header:</p>
