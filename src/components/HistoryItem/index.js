@@ -33,8 +33,9 @@ const HistoryItem = ({ history }) => {
     setTimeout(() => {
       const el = document.getElementById(itemID);
       if (el !== undefined) el.setAttribute('class', `${style.card} ${style.noticed}`)
+      console.log("exed")
     }, 450);
-  }, []);
+  }, [itemID]);
 
   return (
     <div className={`${style.card}`} id={`${itemID}`}>

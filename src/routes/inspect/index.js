@@ -28,18 +28,22 @@ const Inspect = ({ linkID }) => {
       });
   });
 
-  useEffect(async () => {
-    const [scheme, url] = host.split('://');
-    let wsScheme = scheme === 'http' ? 'ws' : 'wss';
-
-    let wsClient = new Nes.Client(`${wsScheme}://${url}`);
-
-    wsClient.subscribe(`/ws/${linkID}`, (msg) => {
-      setHistories((prev) => [{data: msg}, ...prev]);
-    });
-
-    await wsClient.connect();
-  }, []);
+  useEffect(() => {
+    async function connectWS() {
+      const [scheme, url] = host.split('://');
+      let wsScheme = scheme === 'http' ? 'ws' : 'wss';
+      
+      let wsClient = new Nes.Client(`${wsScheme}://${url}`);
+      
+      wsClient.subscribe(`/ws/${linkID}`, (msg) => {
+        setHistories((prev) => [{data: msg}, ...prev]);
+      });
+      
+      await wsClient.connect();
+    }
+    
+    connectWS();
+  }, [linkID]);
 
   const linkHook = `${host}/l/${linkID}`;
 

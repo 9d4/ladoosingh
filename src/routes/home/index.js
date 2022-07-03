@@ -29,7 +29,7 @@ const Home = () => {
         <h1 class={style.home_card__title}>Ladoosingh</h1>
         <h3 class={style.home_card__subtitle}>The Request Inspector</h3>
         <div
-          class={style.home_card__error + ' ' + (error ? style.show : '')}
+          class={`${style.home_card__error  } ${  error ? style.show : ''}`}
         >
           {error}
         </div>
